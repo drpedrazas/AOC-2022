@@ -39,4 +39,11 @@ for command in commands:
             curr = curr[:curr.rfind("/")]
 
 total = sum([directories[i] for i in  directories if directories[i] <= 100000])
-print(total)
+
+print("Solution part I:", total)
+
+available = 70000000 - directories['/home']
+
+ordered = sorted([i for i in directories if directories[i] + available >= 30000000], key=lambda x: directories[x])
+
+print("Solution part II:" ,directories[ordered[0]])
